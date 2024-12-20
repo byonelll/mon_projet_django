@@ -1,0 +1,5 @@
+{% for application in applications %}
+    <h2>{{ application.job_offer.title }}</h2>
+    <p>Status: {{ application.status }}</p>
+    <p>Applied on: {{ application.applied_date }}</p>
+{% endfor %}

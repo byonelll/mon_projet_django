@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Supprimer une Cotisation{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center text-danger">Supprimer une Cotisation</h1>
+    <p class="text-center">Êtes-vous sûr de vouloir supprimer cette cotisation ?</p>
+    <div class="text-center">
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+            <a href="{% url 'contribution_list' %}" class="btn btn-secondary">Annuler</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

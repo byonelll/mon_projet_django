@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Liste des Membres{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Liste des Membres</h1>
+
+    <!-- Bouton pour ajouter un nouveau membre -->
+   <div class="text-end mb-3">
+
+</div>
+
+    <!-- Table des membres -->
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Numéro de Téléphone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{ member.id }}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.email }}</td>
+                <td>{{ member.phone }}</td>
+                <td>
+                    <!-- Boutons d'actions -->
+                    <a href="{% url 'member_detail' member.id %}" class="btn btn-info btn-sm">Détails</a>
+                    <a href="{% url 'member_delete' member.id %}" class="btn btn-danger btn-sm">Supprimer</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">Aucun membre trouvé.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

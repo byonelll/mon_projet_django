@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ form.instance.id|default:"Ajouter une Cotisation" }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">{{ form.instance.id|default:"Ajouter une Cotisation" }}</h1>
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="text-end">
+            <button type="submit" class="btn btn-success">Enregistrer</button>
+            <a href="{% url 'contribution_list' %}" class="btn btn-secondary">Annuler</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

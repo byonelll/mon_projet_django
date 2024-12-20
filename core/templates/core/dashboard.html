@@ -1,0 +1,89 @@
+{% extends 'core/base.html' %}
+{% block title %}Tableau de Bord{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="container mt-4">
+    <div class="row">
+        <!-- Profil utilisateur -->
+        <div class="col-md-12 mb-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Bonjour, {{ user.username }} !</h4>
+                    <p class="card-text">
+                        Email : {{ user.email }}<br>
+                        Membre depuis : {{ user.date_joined|date:"d M Y" }}
+                    </p>
+                   <form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger nav-link">Déconnexion</button>
+</form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <h1 class="text-center mb-4">Tableau de Bord</h1>
+    <div class="row">
+        <!-- Statistiques -->
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-primary shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Membres inscrits</h5>
+                    <p class="card-text display-4">150</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-success shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Cotisations collectées</h5>
+                    <p class="card-text display-4">€3000</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-warning shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Événements à venir</h5>
+                    <p class="card-text display-4">5</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sections principales -->
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <i class="fa fa-calendar-alt fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Mes Événements</h5>
+                    <p>Voir la liste des événements à venir.</p>
+                    <a href="{% url 'event_list' %}" class="btn btn-primary">Accéder</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <i class="fa fa-coins fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Mes Cotisations</h5>
+                    <p>Consultez votre historique de cotisations.</p>
+                    <a href="{% url 'contribution_list' %}" class="btn btn-success">Accéder</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <i class="fa fa-briefcase fa-3x text-warning mb-3"></i>
+                    <h5 class="card-title">Offres d'emploi</h5>
+                    <p>Découvrir les dernières opportunités.</p>
+                    <a href="{% url 'job_offer_list' %}" class="btn btn-warning">Accéder</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

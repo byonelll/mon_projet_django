@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Créer un Nouvel Événement</h2>
+    <form method="POST" action="{% url 'event_create' %}" class="p-4 shadow-sm bg-light rounded">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="title" class="form-label">Titre</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="Titre de l'événement" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" class="form-control" rows="4" placeholder="Description de l'événement"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" name="date" id="date" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="time" class="form-label">Heure</label>
+            <input type="time" name="time" id="time" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Lieu</label>
+            <input type="text" name="location" id="location" class="form-control" placeholder="Lieu de l'événement" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Créer l'Événement</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,187 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container mt-4">
+
+    <!-- Bannière améliorée -->
+    <div class="jumbotron text-white text-center py-5"
+     style="background: url('{% static "images/background.jpg" %}') no-repeat center center/cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            position: relative;">
+    <div style="background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
+        <h1 class="display-4 animated fadeInDown">Réseau des Étudiants Ivoiriens du Gontougo</h1>
+        <p class="lead animated fadeInUp">Solidarité, entraide et réussite pour tous.</p>
+        <a href="{% url 'login' %}" class="btn btn-primary">Connexion</a>
+    </div>
+</div>
+
+  <!-- Conteneur avec arrière-plan -->
+    <div style="background: url('{% static "images/logo.jpg" %}') no-repeat center center/cover; padding: 20px;">
+
+
+    <!-- À propos de nous avec dégradé -->
+    <section class="my-5 p-4" style="background: #f9f9f9; border-radius: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.2);">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mb-3">À propos de nous</h2>
+                <p class="text-justify">
+    Le Réseau des Étudiants Ivoiriens du Gontougo au Maroc est bien plus qu’une simple association.
+    Nous sommes une famille d’étudiants unis par des valeurs de solidarité, de partage et d’ambition.
+    En tant qu’étudiants Koulango de Bondoukou, nous œuvrons pour promouvoir notre culture, faciliter
+    l’intégration des nouveaux venus et renforcer nos capacités académiques et professionnelles.
+</p>
+
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'images/drapeau.jpg' %}" class="img-fluid rounded shadow" alt="Drapeau ivoirien">
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrousel pour la galerie -->
+    <section class="my-5">
+        <h2 class="text-center mb-4">Galerie</h2>
+        <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/event1.jpg' %}" class="d-block w-100 rounded" alt="Événement 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/event2.jpg' %}" class="d-block w-100 rounded" alt="Événement 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/event3.jpg' %}" class="d-block w-100 rounded" alt="Événement 3">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#galleryCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </a>
+            <a class="carousel-control-next" href="#galleryCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Nos Activités avec animations -->
+<!-- Nos Activités amélioré -->
+<section class="my-5">
+    <h2 class="text-center mb-4">Nos Activités</h2>
+    <div class="row g-4 text-center">
+        <!-- Activité 1 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-lg border-0">
+                <div class="card-body">
+                    <i class="fa fa-calendar-alt fa-4x mb-3 text-primary animate__animated animate__bounceIn"></i>
+                    <h4 class="card-title">Événements</h4>
+                    <p class="card-text">
+                        Participez à des conférences, sorties et soirées pour tisser des liens solides et enrichir votre expérience.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activité 2 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-lg border-0">
+                <div class="card-body">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h4 class="card-title">Cotisations</h4>
+                    <p class="card-text">
+                        Contribuez à nos projets et aidez à financer des initiatives qui impactent positivement notre communauté.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activité 3 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-lg border-0">
+                <div class="card-body">
+                    <i class="fa fa-briefcase fa-4x mb-3 text-warning animate__animated animate__rubberBand"></i>
+                    <h4 class="card-title">Opportunités professionnelles</h4>
+                    <p class="card-text">
+                        Bénéficiez d'offres d'emploi, de stages et de conseils pour bâtir une carrière réussie.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Témoignages améliorés -->
+<!-- Témoignages améliorés -->
+<section class="my-5 py-5 position-relative" style="background: linear-gradient(135deg, #f9f9f9, #ffffff); box-shadow: 0 4px 10px rgba(0,0,0,0.2); border-radius: 10px;">
+    <h2 class="text-center mb-5 display-5 text-primary">Témoignages</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Témoignage 1 -->
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                    <div class="testimonial-box text-center p-4 shadow rounded" style="max-width: 600px; background: #ffffff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <img src="{% static 'images/user1.jpg' %}" alt="Jean K." class="rounded-circle mb-3" style="width: 100px; height: 100px; border: 3px solid #17a2b8;">
+                        <p class="fst-italic text-muted mb-3">"Grâce à cette association, j'ai trouvé un stage incroyable et rencontré des amis pour la vie !"</p>
+                        <footer class="blockquote-footer text-primary">Jean K., membre actif</footer>
+                    </div>
+                </div>
+            </div>
+            <!-- Témoignage 2 -->
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="testimonial-box text-center p-4 shadow rounded" style="max-width: 600px; background: #ffffff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <img src="{% static 'images/user2.jpg' %}" alt="Marie T." class="rounded-circle mb-3" style="width: 100px; height: 100px; border: 3px solid #ffc107;">
+                        <p class="fst-italic text-muted mb-3">"Un réseau qui m'a permis de surmonter les défis des études à l'étranger."</p>
+                        <footer class="blockquote-footer text-primary">Marie T., ancienne membre</footer>
+                    </div>
+                </div>
+            </div>
+            <!-- Témoignage 3 -->
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                    <div class="testimonial-box text-center p-4 shadow rounded" style="max-width: 600px; background: #ffffff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <img src="{% static 'images/user3.png' %}" alt="Ali B." class="rounded-circle mb-3" style="width: 100px; height: 100px; border: 3px solid #28a745;">
+                        <p class="fst-italic text-muted mb-3">"Une association qui combine entraide, amitié et opportunités professionnelles."</p>
+                        <footer class="blockquote-footer text-primary">Ali B., partenaire actif</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contrôles du carrousel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Précédent</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Suivant</span>
+        </button>
+    </div>
+
+    <!-- Décorations supplémentaires -->
+    <div class="position-absolute top-0 start-0 translate-middle" style="width: 120px; height: 120px; background: #17a2b8; border-radius: 50%; opacity: 0.1;"></div>
+    <div class="position-absolute bottom-0 end-0 translate-middle" style="width: 150px; height: 150px; background: #ffc107; border-radius: 50%; opacity: 0.1;"></div>
+</section>
+
+
+    <!-- Appel à l'action -->
+
+<section class="text-center my-5 py-5" style="background: linear-gradient(to bottom, #007bff, #0056b3); color: white; border-radius: 10px; box-shadow: 0 3px 6px rgba(0,0,0,0.3);">
+    <h2 class="mb-3 animate__animated animate__fadeInDown">Prêt à nous rejoindre ?</h2>
+    <p class="mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+        Rejoignez une communauté dynamique qui valorise la solidarité, l'entraide et la réussite.
+        Ensemble, nous construisons des ponts vers un avenir prometteur.
+    </p>
+    <a href="{% url 'register' %}" class="btn btn-lg btn-light shadow animate__animated animate__pulse animate__infinite">
+        <i class="fas fa-user-plus"></i> Inscription
+    </a>
+</section>
+</div>
+</div>
+
+{% endblock %}

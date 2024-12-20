@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Offres d'Emploi{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5">💼 Offres d'Emploi et Stages</h1>
+
+    <div class="row">
+        {% for job in job_offers %}
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-lg h-100 border-0">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold text-primary">{{ job.title }}</h5>
+                    <p class="card-subtitle mb-2 text-muted">
+                        <i class="fas fa-building"></i> {{ job.company }} |
+                        <i class="fas fa-map-marker-alt"></i> {{ job.location }}
+                    </p>
+
+                    <!-- Extrait de description -->
+                    <p class="card-text text-secondary mt-2">
+                        {{ job.description|truncatewords:20 }}
+                    </p>
+
+                    <!-- Collapse pour afficher toute la description -->
+                    <div class="collapse" id="description-{{ forloop.counter }}">
+                        <p class="card-text text-secondary">
+                            {{ job.description }}
+                        </p>
+                    </div>
+
+                    <!-- Bouton pour afficher plus -->
+                    <a class="btn btn-link text-primary p-0"
+                       data-bs-toggle="collapse"
+                       href="#description-{{ forloop.counter }}"
+                       role="button"
+                       aria-expanded="false"
+                       aria-controls="description-{{ forloop.counter }}">
+                        Lire plus
+                    </a>
+
+                    <p class="small text-muted mt-auto">
+                        Publié le : {{ job.published_date }}
+                    </p>
+                    <a href="{{ job.source_url }}" target="_blank" class="btn btn-success mt-2">
+                        <i class="fas fa-external-link-alt"></i> Postuler
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <p class="text-muted">Aucune offre d'emploi n'est disponible pour le moment.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Détails de l'Offre{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">{{ offer.title }}</h1>
+    <p><strong>Publié le :</strong> {{ offer.posted_at|date:"d M Y" }}</p>
+    <p>{{ offer.description }}</p>
+
+    <a href="{% url 'joboffer_apply' offer.id %}" class="btn btn-success">Postuler</a>
+</div>
+{% endblock %}
