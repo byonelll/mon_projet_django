@@ -30,6 +30,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+import tempfile
+import os
+
+TEMP_DIR = tempfile.gettempdir()
+os.environ['TMPDIR'] = TEMP_DIR
+
+
 
 # Application definition
 
