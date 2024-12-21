@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os.path
+from email.policy import default
 from pathlib import Path
 from django.contrib.messages import constants as messages
 from decouple import config
@@ -108,7 +109,7 @@ DATABASES = {
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv'DB_PORT', (default=5432),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
@@ -159,3 +160,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
+
